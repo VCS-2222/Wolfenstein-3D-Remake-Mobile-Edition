@@ -15,6 +15,7 @@ public class GermanTrooperAI : MonoBehaviour
     [SerializeField] bool hasPath;
     [SerializeField] bool isIdle;
     [SerializeField] int health;
+    [SerializeField] int scoreWorth;
 
     [Header("Path Settings")]
     [SerializeField] List<Transform> path = new List<Transform>();
@@ -84,6 +85,8 @@ public class GermanTrooperAI : MonoBehaviour
 
         if(health <= 0)
         {
+            EndGameManager.instance.kills++;
+            PlayerStats.instance.AddScore(scoreWorth);
             Destroy(gameObject);
         }
     }

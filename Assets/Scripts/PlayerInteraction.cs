@@ -41,5 +41,10 @@ public class PlayerInteraction : MonoBehaviour
         {
             hit.transform.GetComponent<SlideDoor>().OpenSlideDoor();
         }
+
+        if (hit.transform.tag == "End")
+        {
+            hit.transform.GetComponent<EndGameManager>().StartCoroutine(hit.transform.GetComponent<EndGameManager>().FinishLevel());
+        }
     }
 }

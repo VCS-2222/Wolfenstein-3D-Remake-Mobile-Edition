@@ -5,14 +5,19 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
+    public static PlayerStats instance;
+
     [Header("Needed Components")]
     [SerializeField] BJFacialExpressions BJ;
     [SerializeField] Text healthText;
+    [SerializeField] Text livesText;
+    [SerializeField] Text ammoText;
+    [SerializeField] Text scoreText;
 
     [Header("Important Variables")]
-    [SerializeField] float maxHealth;
-    [SerializeField] float minHealth;
-    [SerializeField] float currentHealth;
+    [SerializeField] int maxHealth;
+    [SerializeField] int minHealth;
+    [SerializeField] int currentHealth;
 
     [SerializeField] bool hasKnife;
     [SerializeField] bool hasPistol;
@@ -25,28 +30,47 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Guns and Ammo")]
     [SerializeField] int ammo;
-    [SerializeField] RaycastHit thingHit;
-    [SerializeField] Transform gunShootPoint;
+    public Transform gunShootPoint;
     public GameObject currentGunSelected;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
         UpdateHealth();
+        UpdateLives();
+        UpdateAmmo();
+        UpdateScore();
     }
 
     #region health
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         UpdateHealth();
         CheckForHealthStatus();
     }
 
-    public void GainHealth(float gain)
+    public void GainHealth(int gain)
     {
         currentHealth += gain;
         UpdateHealth();
         CheckForHealthStatus();
+    }
+
+    public void GainLive()
+    {
+        lives++;
+        UpdateLives();
+    }
+
+    public void LoseLive()
+    {
+        lives--;
+        UpdateLives();
     }
 
     void CheckForHealthStatus()
@@ -67,6 +91,11 @@ public class PlayerStats : MonoBehaviour
         healthText.text = currentHealth.ToString();
     }
 
+    void UpdateLives()
+    {
+        livesText.text = lives.ToString();
+    }
+
     float ReturnHealth()
     {
         return currentHealth;
@@ -74,17 +103,19 @@ public class PlayerStats : MonoBehaviour
     #endregion health
 
     #region gun
-    public void Shoot()
-    {
-        Physics.Raycast(gunShootPoint.transform.position, gunShootPoint.transform.forward, out thingHit, 100);
 
-        if(thingHit.transform.tag == "Enemy")
-        {
-            if (thingHit.transform.GetComponent<GermanTrooperAI>() != null)
-            {
-                thingHit.transform.GetComponent<GermanTrooperAI>().TakeDamage(5);
-            }
-        }
+    public void ShootGun()
+    {
+        if(!currentGunSelected)
+            return;
+
+        print("Shot");
+        currentGunSelected.GetComponent<WeaponScript>().StartCoroutine(currentGunSelected.GetComponent<WeaponScript>().Shooting());
+    }
+
+    void UpdateAmmo()
+    {
+        ammoText.text = ammo.ToString();
     }
 
     int ReturnAmmo()
@@ -92,6 +123,17 @@ public class PlayerStats : MonoBehaviour
         return ammo;
     }
     #endregion gun
+
+    void UpdateScore()
+    {
+        scoreText.text = score.ToString();
+    }
+
+    public void AddScore(int amount)
+    {
+        score += amount;
+        UpdateScore();
+    }
 
     int ReturnScore()
     {

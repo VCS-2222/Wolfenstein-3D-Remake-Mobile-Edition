@@ -161,6 +161,7 @@ MonoBehaviour:
   hasPath: 0
   isIdle: 0
   health: 0
+  scoreWorth: 100
   path: []
   currentPathPoint: 0
 --- !u!114 &371301770373141858

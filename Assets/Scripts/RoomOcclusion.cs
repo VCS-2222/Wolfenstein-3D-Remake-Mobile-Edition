@@ -42,6 +42,7 @@ public class RoomOcclusion : MonoBehaviour
             else
             {
                 yield return new WaitForSeconds(0.5f);
+                hasPlayerInside = false;
             }
         }
     }
@@ -50,6 +51,7 @@ public class RoomOcclusion : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            CheckPerimeter();
             EnableRenderers();
         }
     }
@@ -69,10 +71,6 @@ public class RoomOcclusion : MonoBehaviour
             if (colliders[i].tag == "Player")
             {
                 hasPlayerInside = true;
-            }
-            else
-            {
-                hasPlayerInside = false;
             }
         }
     }

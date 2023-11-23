@@ -834,8 +834,8 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Wolfenstein 3D Mobile
-  metroPackageVersion: 
+  metroPackageName: Wolfenstein3DMobile
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -843,7 +843,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Wolfenstein 3D Mobile
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: Wolfenstein 3D Remake Mobile Edition
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
