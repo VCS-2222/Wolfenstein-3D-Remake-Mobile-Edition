@@ -25,8 +25,15 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         moveDirection = transform.forward * moveJoystick.Vertical + transform.right * moveJoystick.Horizontal;
+    }
 
+    private void FixedUpdate()
+    {
         controller.Move((moveDirection * currentSpeed) * Time.deltaTime);
+
+        if (controller.isGrounded)
+            return;
+        controller.Move(-Vector3.up * 9);
     }
 
     public void Run()

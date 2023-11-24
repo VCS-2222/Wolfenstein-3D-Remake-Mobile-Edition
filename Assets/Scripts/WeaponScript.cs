@@ -11,6 +11,8 @@ public class WeaponScript : MonoBehaviour
     [SerializeField] float cooldownSeconds;
     [SerializeField] int damageDeal;
 
+    [SerializeField] bool usesBullets;
+
     [Header("Important Components")]
     public PlayerStats playerStats;
 
@@ -23,12 +25,22 @@ public class WeaponScript : MonoBehaviour
     {
         if (hasCooldown)
         {
-            yield return new WaitForSeconds(cooldownSeconds);
             Shoot(playerStats.gunShootPoint);
+
+            if (usesBullets)
+            {
+                playerStats.UseAmmo(1);
+            }
+
+            yield return new WaitForSeconds(cooldownSeconds);
         }
         else
         {
             Shoot(playerStats.gunShootPoint);
+            if (usesBullets)
+            {
+                playerStats.UseAmmo(1);
+            }
         }
     }
 

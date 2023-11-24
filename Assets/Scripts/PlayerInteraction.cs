@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] bool interacting;
+    [SerializeField] PlayerStats stats;
 
     void Update()
     {
@@ -45,6 +46,128 @@ public class PlayerInteraction : MonoBehaviour
         if (hit.transform.tag == "End")
         {
             hit.transform.GetComponent<EndGameManager>().StartCoroutine(hit.transform.GetComponent<EndGameManager>().FinishLevel());
+        }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if(collision.transform.tag == "Item")
+        {
+            //items
+
+            if(collision.transform.GetComponent<Item>().ReturnHealthAdd() == true)
+            {
+                if (stats.ReturnHealth() == 100)
+                    return;
+
+                stats.GainHealth(collision.transform.GetComponent<Item>().addToHealth);
+                Destroy(collision.gameObject);
+            }
+
+            if (collision.transform.GetComponent<Item>().ReturnHealthRemove() == true)
+            {
+                if (stats.ReturnHealth() == 0)
+                    return;
+
+                stats.TakeDamage(collision.transform.GetComponent<Item>().removeFromHealth);
+                Destroy(collision.gameObject);
+            }
+
+            if (collision.transform.GetComponent<Item>().ReturnAmmoAdd() == true)
+            {
+                if (stats.ReturnAmmo() == 99)
+                    return;
+
+                stats.PickUpAmmo(collision.transform.GetComponent<Item>().addToAmmo);
+                Destroy(collision.gameObject);
+            }
+
+            if (collision.transform.GetComponent<Item>().ReturnAmmoRemove() == true)
+            {
+                if (stats.ReturnAmmo() == 0)
+                    return;
+
+                stats.UseAmmo(collision.transform.GetComponent<Item>().removeFromAmmo);
+                Destroy(collision.gameObject);
+            }
+
+            //if (collision.transform.GetComponent<Item>().ReturnLivesAdd() == true)
+            //{
+            //    stats.UseAmmo(collision.transform.GetComponent<Item>().removeFromAmmo);
+            //}
+
+            //if (collision.transform.GetComponent<Item>().ReturnLivesRemove() == true)
+            //{
+            //    stats.UseAmmo(collision.transform.GetComponent<Item>().removeFromAmmo);
+            //}
+
+            if (collision.transform.GetComponent<Item>().ReturnScoreAdd() == true)
+            {
+                stats.AddScore(collision.transform.GetComponent<Item>().addToScore);
+                Destroy(collision.gameObject);
+            }
+
+            if (collision.transform.GetComponent<Item>().ReturnScoreRemove() == true)
+            {
+                stats.RemoveScore(collision.transform.GetComponent<Item>().removesFromScore);
+                Destroy(collision.gameObject);
+            }
+
+            //guns
+
+            if(collision.transform.GetComponent<Item>().ReturnKnife() == false)  //KNIFE
+            {
+                if (stats.hasKnife == true)
+                    return;
+
+                stats.hasKnife = true;
+                Destroy(collision.gameObject);
+            }
+
+            if (collision.transform.GetComponent<Item>().ReturnPistol() == false)    //PISTOL
+            {
+                if (stats.hasPistol == true)
+                {
+                    if (stats.ReturnAmmo() < 99)
+                    {
+                        stats.PickUpAmmo(15);
+                    }
+                    return;
+                }
+
+                stats.hasPistol = true;
+                Destroy(collision.gameObject);
+            }
+
+            if (collision.transform.GetComponent<Item>().ReturnSub() == false)   //SUB
+            {
+                if (stats.hasSub == true)
+                {
+                    if (stats.ReturnAmmo() < 99)
+                    {
+                        stats.PickUpAmmo(15);
+                    }
+                    return;
+                }
+
+                stats.hasSub = true;
+                Destroy(collision.gameObject);
+            }
+
+            if (collision.transform.GetComponent<Item>().ReturnChain() == false) //CHAIN
+            {
+                if (stats.hasChain == true)
+                {
+                    if (stats.ReturnAmmo() < 99)
+                    {
+                        stats.PickUpAmmo(15);
+                    }
+                    return;
+                }
+
+                stats.hasChain = true;
+                Destroy(collision.gameObject);
+            }
         }
     }
 }

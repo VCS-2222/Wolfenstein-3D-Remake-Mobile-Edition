@@ -11,7 +11,7 @@ public class PlayerLook : MonoBehaviour
     [Header("Variables")]
     [SerializeField] float sensitivity;
 
-    private void Update()
+    private void FixedUpdate()
     {
         playerBody.transform.Rotate(((Vector3.up * lookJoystick.Horizontal) * sensitivity) * Time.deltaTime);
     }
