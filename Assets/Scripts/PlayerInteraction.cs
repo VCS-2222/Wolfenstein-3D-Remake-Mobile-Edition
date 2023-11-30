@@ -115,16 +115,16 @@ public class PlayerInteraction : MonoBehaviour
 
             //guns
 
-            if(collision.transform.GetComponent<Item>().ReturnKnife() == false)  //KNIFE
+            if(collision.transform.GetComponent<Item>().ReturnKnife() == true)  //KNIFE
             {
                 if (stats.hasKnife == true)
                     return;
 
-                stats.hasKnife = true;
+                stats.PickUpGun(0);
                 Destroy(collision.gameObject);
             }
 
-            if (collision.transform.GetComponent<Item>().ReturnPistol() == false)    //PISTOL
+            if (collision.transform.GetComponent<Item>().ReturnPistol() == true)    //PISTOL
             {
                 if (stats.hasPistol == true)
                 {
@@ -135,11 +135,11 @@ public class PlayerInteraction : MonoBehaviour
                     return;
                 }
 
-                stats.hasPistol = true;
+                stats.PickUpGun(1);
                 Destroy(collision.gameObject);
             }
 
-            if (collision.transform.GetComponent<Item>().ReturnSub() == false)   //SUB
+            if (collision.transform.GetComponent<Item>().ReturnSub() == true)   //SUB
             {
                 if (stats.hasSub == true)
                 {
@@ -150,11 +150,11 @@ public class PlayerInteraction : MonoBehaviour
                     return;
                 }
 
-                stats.hasSub = true;
+                stats.PickUpGun(2);
                 Destroy(collision.gameObject);
             }
 
-            if (collision.transform.GetComponent<Item>().ReturnChain() == false) //CHAIN
+            if (collision.transform.GetComponent<Item>().ReturnChain() == true) //CHAIN
             {
                 if (stats.hasChain == true)
                 {
@@ -165,7 +165,16 @@ public class PlayerInteraction : MonoBehaviour
                     return;
                 }
 
-                stats.hasChain = true;
+                stats.PickUpGun(3);
+                Destroy(collision.gameObject);
+            }
+
+            //treasure
+
+            if (collision.transform.GetComponent<Item>().isTreasure == true)
+            {
+                stats.AddTreasures();
+                stats.AddScore(collision.transform.GetComponent<Item>().addToScore);
                 Destroy(collision.gameObject);
             }
         }

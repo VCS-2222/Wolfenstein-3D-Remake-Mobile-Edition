@@ -13,6 +13,7 @@ public class Item : MonoBehaviour
     [SerializeField] bool removeLives;
     [SerializeField] bool addsScore;
     [SerializeField] bool removeScore;
+    public bool isTreasure;
 
     [Header("Variables")]
     public int addToHealth;

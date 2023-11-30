@@ -16,6 +16,7 @@ public class SecretDoor : MonoBehaviour
         if (isOpened)
             return;
 
+        PlayerStats.instance.AddSecrets();
         isOpened = true;
         StartCoroutine(OpenDoor());
     }

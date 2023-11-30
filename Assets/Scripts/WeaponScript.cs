@@ -15,6 +15,8 @@ public class WeaponScript : MonoBehaviour
 
     [Header("Important Components")]
     public PlayerStats playerStats;
+    [SerializeField] ParticleSystem muzzleFlash;
+    [SerializeField] Animator animator;
 
     private void Start()
     {
@@ -48,6 +50,12 @@ public class WeaponScript : MonoBehaviour
     {
         RaycastHit thingHit;
         Physics.Raycast(GunShootPoint.position, GunShootPoint.forward, out thingHit, range);
+        animator.SetTrigger("shoot");
+
+        if (usesBullets)
+        {
+            muzzleFlash.Play();
+        }
 
         if (thingHit.transform.tag == "Enemy")
         {

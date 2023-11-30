@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class EndGameManager : MonoBehaviour
 {
-    public static EndGameManager instance;
-
     [Header("Percentages")]
     public float killPercent;
     public float secretPercent;
@@ -20,25 +18,43 @@ public class EndGameManager : MonoBehaviour
     public int totalSecrets;
     public int totalTreasures;
 
+    [SerializeField] int parTime;
+
     [Header("In Level")]
     public int kills;
     public int secrets;
     public int treasures;
+    public int timeOfLevel;
 
     [Header("UI")]
     [SerializeField] GameObject canvas;
     [SerializeField] Text killsText;
     [SerializeField] Text secretsText;
     [SerializeField] Text treasuresText;
-
-    private void Awake()
-    {
-        instance = this;
-    }
+    [SerializeField] Text timerText;
+    [SerializeField] Text parTimeText;
+    [SerializeField] Text bonusText;
 
     public IEnumerator FinishLevel()
     {
+        kills = PlayerStats.instance.ReturnKills();
+        secrets = PlayerStats.instance.ReturnSecrets();
+        treasures = PlayerStats.instance.ReturnTreasures();
+        timeOfLevel = PlayerStats.instance.ReturnMinutes() + PlayerStats.instance.ReturnTime();
+
+        if(timeOfLevel < parTime)
+        {
+            bonus = 1000;
+        }
+        else if(timeOfLevel >= parTime)
+        {
+            bonus = 1500;
+        }
+
         canvas.SetActive(true);
+
+        timerText.text = string.Format("{00:00}:{01:00}", PlayerStats.instance.ReturnMinutes(), PlayerStats.instance.ReturnTime());
+        bonusText.text = bonus.ToString();
 
         killPercent = ((float)kills / (float)totalPossibleKills) * 100;
         killsText.text = killPercent.ToString("0") + "%";
@@ -50,7 +66,10 @@ public class EndGameManager : MonoBehaviour
         treasuresText.text = treasurePercent.ToString("0") + "%";
 
         yield return new WaitForSeconds(0.5f);
+    }
 
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    public void MoveToNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

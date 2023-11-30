@@ -26,8 +26,14 @@ public class PlayerStats : MonoBehaviour
     public bool hasChain;
 
     [SerializeField] int score;
+    [SerializeField] int kills;
 
     [SerializeField] int lives;
+    [SerializeField] int minutes;
+    [SerializeField] float timer;
+
+    [SerializeField] int secrets;
+    [SerializeField] int treasures;
 
     [Header("Guns and Ammo")]
     [SerializeField] int ammo;
@@ -52,6 +58,26 @@ public class PlayerStats : MonoBehaviour
         UpdateLives();
         UpdateAmmo();
         UpdateScore();
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        if(timer >= 60)
+        {
+            minutes++;
+            timer = 0;
+        }
+    }
+
+    public int ReturnTime()
+    {
+        return (int)timer;
+    }
+
+    public int ReturnMinutes()
+    {
+        return minutes;
     }
 
     #region health
@@ -103,7 +129,20 @@ public class PlayerStats : MonoBehaviour
 
     void UpdateHealth()
     {
-        healthText.text = currentHealth.ToString();
+        if(currentHealth == 0)
+        {
+            Color baseColour = healthText.color;
+            baseColour.a = 0;
+            healthText.color = baseColour;
+        }
+        else
+        {
+            Color baseColour = healthText.color;
+            baseColour.a = 1;
+            healthText.color = baseColour;
+        }
+
+        healthText.text = currentHealth + "%";
     }
 
     void UpdateLives()
@@ -253,6 +292,17 @@ public class PlayerStats : MonoBehaviour
     {
         return ammo;
     }
+
+    public void AddKills()
+    {
+        kills++;
+    }
+
+    public int ReturnKills()
+    {
+        return kills;
+    }
+
     #endregion gun
 
     #region score
@@ -275,6 +325,26 @@ public class PlayerStats : MonoBehaviour
 
         score -= amount;
         UpdateScore();
+    }
+
+    public void AddSecrets()
+    {
+        secrets++;
+    }
+
+    public int ReturnSecrets()
+    {
+        return secrets;
+    }
+
+    public void AddTreasures()
+    {
+        treasures++;
+    }
+
+    public int ReturnTreasures()
+    {
+        return treasures;
     }
 
     int ReturnScore()

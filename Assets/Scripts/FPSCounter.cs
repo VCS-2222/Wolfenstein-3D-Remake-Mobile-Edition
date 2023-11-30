@@ -18,7 +18,7 @@ public class FPSCounter : MonoBehaviour
         while (true)
         {
             int fps = (int) (1f / Time.deltaTime);
-            fpsText.text = fps.ToString();
+            fpsText.text = "[" + fps + " Frames Per Second]";
             yield return new WaitForSeconds(.2f);
         }
     }

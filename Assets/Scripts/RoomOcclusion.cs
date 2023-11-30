@@ -32,7 +32,6 @@ public class RoomOcclusion : MonoBehaviour
         {
             openedDoors = 0;
             CheckPerimeter();
-            VerifyDoors();
 
             if (!hasPlayerInside && allDoorsClosed)
             {
