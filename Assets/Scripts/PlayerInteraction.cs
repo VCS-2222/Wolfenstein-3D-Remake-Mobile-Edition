@@ -130,6 +130,7 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     if (stats.ReturnAmmo() < 99)
                     {
+                        Destroy(collision.gameObject);
                         stats.PickUpAmmo(15);
                     }
                     return;
@@ -145,6 +146,7 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     if (stats.ReturnAmmo() < 99)
                     {
+                        Destroy(collision.gameObject);
                         stats.PickUpAmmo(15);
                     }
                     return;
@@ -160,6 +162,7 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     if (stats.ReturnAmmo() < 99)
                     {
+                        Destroy(collision.gameObject);
                         stats.PickUpAmmo(15);
                     }
                     return;

@@ -38,10 +38,7 @@ public class GermanTrooperAI : MonoBehaviour
         DoPath();
         DoMovementAnimation();
         Chase();
-    }
 
-    private void FixedUpdate()
-    {
         if (hasSeenPlayer)
             return;
 

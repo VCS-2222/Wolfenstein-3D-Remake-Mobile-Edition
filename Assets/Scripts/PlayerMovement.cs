@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] CharacterController controller;
     [SerializeField] Joystick moveJoystick;
+    [SerializeField] Image runButtonImage;
 
     Vector3 moveDirection;
 
