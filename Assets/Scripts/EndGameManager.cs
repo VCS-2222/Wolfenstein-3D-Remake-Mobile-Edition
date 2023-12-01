@@ -97,7 +97,7 @@ public class EndGameManager : MonoBehaviour
         treasurePercent = ((float)treasures / (float)totalTreasures) * 100;
         treasuresText.text = treasurePercent.ToString("0") + "%";
 
-        endGameScoreText.text = PlayerStats.instance.ReturnScore() + killPercent + secretPercent + treasurePercent + PlayerStats.instance.ReturnLives() + PlayerStats.instance.ReturnHealth().ToString();
+        endGameScoreText.text = PlayerStats.instance.ReturnScore() + killPercent + secretPercent + treasurePercent + PlayerStats.instance.ReturnLives() + PlayerStats.instance.ReturnHealth().ToString("0");
 
         yield return new WaitForSeconds(0.5f);
 

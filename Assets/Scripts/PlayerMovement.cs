@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] CharacterController controller;
     [SerializeField] Joystick moveJoystick;
+    [SerializeField] Image runButtonImage;
 
     Vector3 moveDirection;
 
@@ -42,12 +44,12 @@ public class PlayerMovement : MonoBehaviour
 
         if(isRunning)
         {
-            //runButtonImage.color = Color.red;
+            runButtonImage.color = Color.red;
             currentSpeed = runSpeed;
         }
         else
         {
-            //runButtonImage.color = Color.white;
+            runButtonImage.color = Color.white;
             currentSpeed = walkSpeed;
         }
     }

@@ -55,7 +55,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             //items
 
-            if(collision.transform.GetComponent<Item>().ReturnHealthAdd() == true)
+            if(collision.transform.GetComponent<Item>().ReturnHealthAdd() == true)  //HEALTH
             {
                 if (stats.ReturnHealth() == 100)
                     return;
@@ -64,7 +64,7 @@ public class PlayerInteraction : MonoBehaviour
                 Destroy(collision.gameObject);
             }
 
-            if (collision.transform.GetComponent<Item>().ReturnHealthRemove() == true)
+            if (collision.transform.GetComponent<Item>().ReturnHealthRemove() == true)  //HEALTH
             {
                 if (stats.ReturnHealth() == 0)
                     return;
@@ -73,7 +73,7 @@ public class PlayerInteraction : MonoBehaviour
                 Destroy(collision.gameObject);
             }
 
-            if (collision.transform.GetComponent<Item>().ReturnAmmoAdd() == true)
+            if (collision.transform.GetComponent<Item>().ReturnAmmoAdd() == true)   //AMMO
             {
                 if (stats.ReturnAmmo() == 99)
                     return;
@@ -82,7 +82,7 @@ public class PlayerInteraction : MonoBehaviour
                 Destroy(collision.gameObject);
             }
 
-            if (collision.transform.GetComponent<Item>().ReturnAmmoRemove() == true)
+            if (collision.transform.GetComponent<Item>().ReturnAmmoRemove() == true)    //AMMO
             {
                 if (stats.ReturnAmmo() == 0)
                     return;
@@ -91,23 +91,23 @@ public class PlayerInteraction : MonoBehaviour
                 Destroy(collision.gameObject);
             }
 
-            //if (collision.transform.GetComponent<Item>().ReturnLivesAdd() == true)
-            //{
-            //    stats.UseAmmo(collision.transform.GetComponent<Item>().removeFromAmmo);
-            //}
+            if (collision.transform.GetComponent<Item>().ReturnLivesAdd() == true)  //LIVES
+            {
+                stats.GainLive();
+            }
 
-            //if (collision.transform.GetComponent<Item>().ReturnLivesRemove() == true)
-            //{
-            //    stats.UseAmmo(collision.transform.GetComponent<Item>().removeFromAmmo);
-            //}
+            if (collision.transform.GetComponent<Item>().ReturnLivesRemove() == true)   //LIVES
+            {
+                stats.LoseLive();
+            }
 
-            if (collision.transform.GetComponent<Item>().ReturnScoreAdd() == true)
+            if (collision.transform.GetComponent<Item>().ReturnScoreAdd() == true)  //SCORE
             {
                 stats.AddScore(collision.transform.GetComponent<Item>().addToScore);
                 Destroy(collision.gameObject);
             }
 
-            if (collision.transform.GetComponent<Item>().ReturnScoreRemove() == true)
+            if (collision.transform.GetComponent<Item>().ReturnScoreRemove() == true)   //SCORE    
             {
                 stats.RemoveScore(collision.transform.GetComponent<Item>().removesFromScore);
                 Destroy(collision.gameObject);

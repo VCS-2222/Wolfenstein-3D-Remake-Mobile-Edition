@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 1667791612221506525}
   - component: {fileID: 7725638740411615584}
   - component: {fileID: -4870062658241307077}
+  - component: {fileID: 3265363808328636033}
   m_Layer: 6
   m_Name: One Up
-  m_TagString: One Up
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,3 +137,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &3265363808328636033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136032769867560053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbe22bce26c8da40aced89aea576215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addsHealth: 0
+  removesHealth: 0
+  addsAmmo: 0
+  removesAmmo: 0
+  addsLives: 1
+  removeLives: 0
+  addsScore: 0
+  removeScore: 0
+  isTreasure: 0
+  addToHealth: 0
+  removeFromHealth: 0
+  addToAmmo: 0
+  removeFromAmmo: 0
+  addToLives: 0
+  removesFromLives: 0
+  addToScore: 0
+  removesFromScore: 0
+  giveKnife: 0
+  givePistol: 0
+  giveSub: 0
+  giveChain: 0
