@@ -154,6 +154,12 @@ public class PlayerStats : MonoBehaviour
     {
         return currentHealth;
     }
+
+    public int ReturnLives()
+    {
+        return lives;
+    }
+
     #endregion health
 
     #region gun
@@ -347,7 +353,7 @@ public class PlayerStats : MonoBehaviour
         return treasures;
     }
 
-    int ReturnScore()
+    public int ReturnScore()
     {
         return score;
     }

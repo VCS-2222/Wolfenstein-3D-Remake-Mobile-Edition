@@ -164,7 +164,7 @@ Material:
     - _HeightBlurSize: 1
     - _HeightStrength: 0
     - _METALNESS: 0
-    - _Metallic: 0.6
+    - _Metallic: 0.5
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
