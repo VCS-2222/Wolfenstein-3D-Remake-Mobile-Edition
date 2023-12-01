@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -50,6 +51,11 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
+        if (PlayerPrefs.HasKey("lives"))
+        {
+            lives = PlayerPrefs.GetInt("lives");
+        }
+
         MakeGunCurrent(1);
 
         CheckForSprites();
@@ -86,6 +92,22 @@ public class PlayerStats : MonoBehaviour
         currentHealth -= damage;
         UpdateHealth();
         CheckForHealthStatus();
+
+        if(currentHealth <= 0)
+        {
+            lives--;
+            if(lives < 0)
+            {
+                PlayerPrefs.DeleteKey("lives");
+                SceneManager.LoadScene(0);
+            }
+            else
+            {
+
+                PlayerPrefs.SetInt("lives", lives);
+                SceneManager.LoadScene(1);
+            }
+        }
     }
 
     public void GainHealth(int gain)

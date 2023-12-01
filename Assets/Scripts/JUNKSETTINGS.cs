@@ -7,6 +7,6 @@ public class JUNKSETTINGS : MonoBehaviour
     private void Start()
     {
         Screen.SetResolution(Screen.currentResolution.width / 2, Screen.currentResolution.height / 2, Screen.fullScreen);
-        Application.targetFrameRate = 80;
+        Application.targetFrameRate = 60;
     }
 }

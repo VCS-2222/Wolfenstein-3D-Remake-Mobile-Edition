@@ -12,6 +12,9 @@ public class GermanTrooperAI : MonoBehaviour
     [SerializeField] GameObject thingToSpawnIfSpecialDeath;
     public GameObject player;
 
+    [SerializeField] Transform shootPoint;
+    [SerializeField] GameObject dyingCounterpart;
+
     [Header("Variables")]
     [SerializeField] float generalSpeed;
     [SerializeField] float angularSpeed;
@@ -38,7 +41,10 @@ public class GermanTrooperAI : MonoBehaviour
         DoPath();
         DoMovementAnimation();
         Chase();
+    }
 
+    private void FixedUpdate()
+    {
         if (hasSeenPlayer)
             return;
 
@@ -144,7 +150,18 @@ public class GermanTrooperAI : MonoBehaviour
 
         animator.SetTrigger("Shoot");
         animator.SetBool("Aim", false);
-        yield return new WaitForSeconds(1f);
+
+        RaycastHit hit;
+        Physics.Raycast(shootPoint.position, shootPoint.transform.forward, out hit, 10);
+
+        print(hit.collider.gameObject.name);
+
+        if(hit.collider.tag == "Player")
+        {
+            hit.collider.GetComponent<PlayerStats>().TakeDamage(14);
+        }
+
+        yield return new WaitForSeconds(2f);
         agent.isStopped = false;
         isIdle = false;
     }
@@ -165,6 +182,8 @@ public class GermanTrooperAI : MonoBehaviour
             {
                 Instantiate(thingToSpawnIfSpecialDeath, this.transform.position, Quaternion.identity);
             }
+
+            Instantiate(dyingCounterpart, this.transform.position, this.transform.rotation);
 
             Destroy(gameObject);
         }
