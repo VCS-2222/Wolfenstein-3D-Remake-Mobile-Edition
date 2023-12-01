@@ -35,6 +35,15 @@ public class EndGameManager : MonoBehaviour
     [SerializeField] Text parTimeText;
     [SerializeField] Text bonusText;
 
+    [SerializeField] Text endGameScoreText;
+    [SerializeField] Text endGameAmmoText;
+    [SerializeField] Text endGameLivesText;
+    [SerializeField] Text endGameHealthText;
+
+    [SerializeField] GameObject currentWeaponSelectedSprite;
+    [SerializeField] GameObject[] listOfWeaponSprites;
+    [SerializeField] GameObject nextLevelButton;
+
     public IEnumerator FinishLevel()
     {
         kills = PlayerStats.instance.ReturnKills();
@@ -53,6 +62,29 @@ public class EndGameManager : MonoBehaviour
 
         canvas.SetActive(true);
 
+        endGameAmmoText.text = PlayerStats.instance.ReturnAmmo().ToString();
+        endGameHealthText.text = PlayerStats.instance.ReturnHealth() + "%";
+        endGameLivesText.text = PlayerStats.instance.ReturnLives().ToString();
+
+        if(PlayerStats.instance.currentGunSelected.name == "Knife")
+        {
+            currentWeaponSelectedSprite = listOfWeaponSprites[0];
+        }
+        else if (PlayerStats.instance.currentGunSelected.name == "Pistol")
+        {
+            currentWeaponSelectedSprite = listOfWeaponSprites[1];
+        }
+        else if (PlayerStats.instance.currentGunSelected.name == "Sub Machine Gun")
+        {
+            currentWeaponSelectedSprite = listOfWeaponSprites[2];
+        }
+        else if (PlayerStats.instance.currentGunSelected.name == "Chain Gun")
+        {
+            currentWeaponSelectedSprite = listOfWeaponSprites[3];
+        }
+
+        currentWeaponSelectedSprite.SetActive(true);
+
         timerText.text = string.Format("{00:00}:{01:00}", PlayerStats.instance.ReturnMinutes(), PlayerStats.instance.ReturnTime());
         bonusText.text = bonus.ToString();
 
@@ -65,11 +97,20 @@ public class EndGameManager : MonoBehaviour
         treasurePercent = ((float)treasures / (float)totalTreasures) * 100;
         treasuresText.text = treasurePercent.ToString("0") + "%";
 
+        endGameScoreText.text = PlayerStats.instance.ReturnScore() + killPercent + secretPercent + treasurePercent + PlayerStats.instance.ReturnLives() + PlayerStats.instance.ReturnHealth().ToString();
+
         yield return new WaitForSeconds(0.5f);
+
+        nextLevelButton.SetActive(true);
     }
 
-    public void MoveToNextLevel()
+    //public void MoveToNextLevel()
+    //{
+    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    //}
+
+    public void GoBackToMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(0);
     }
 }

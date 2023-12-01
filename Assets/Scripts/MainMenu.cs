@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    private void Awake()
+    {
+        Screen.SetResolution(Screen.currentResolution.width / 2, Screen.currentResolution.height / 2, Screen.fullScreen);
+        Application.targetFrameRate = 80;
+    }
+
     public void LoadLevel(int sceneNumber)
     {
         SceneManager.LoadScene(sceneNumber);

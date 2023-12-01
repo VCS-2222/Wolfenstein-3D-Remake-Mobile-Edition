@@ -44,10 +44,12 @@ public class PlayerMovement : MonoBehaviour
 
         if(isRunning)
         {
+            runButtonImage.color = Color.red;
             currentSpeed = runSpeed;
         }
         else
         {
+            runButtonImage.color = Color.white;
             currentSpeed = walkSpeed;
         }
     }
