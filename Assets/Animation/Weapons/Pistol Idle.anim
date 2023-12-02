@@ -51,7 +51,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -1.473, y: -92.929, z: -21.279}
+        value: {x: -26.353, y: -82.383, z: -23.883}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -259,7 +259,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 5.993, y: 63.152, z: 0}
+        value: {x: 5.993, y: 63.152, z: 28.42}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -447,6 +447,38 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     path: Pistol
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0.046, y: 0.193, z: -0.193}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.L/upperarm.L/forearm.L
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0.01, y: 0.215, z: -0.29}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.R/upperarm.R/forearm.R
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -477,6 +509,24 @@ AnimationClip:
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 2776443277
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    - serializedVersion: 2
+      path: 2669756359
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    - serializedVersion: 2
+      path: 4226538408
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -854,7 +904,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -1.473
+        value: -26.353
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -875,7 +925,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -92.929
+        value: -82.383
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -896,7 +946,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -21.279
+        value: -23.883
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1778,7 +1828,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: 28.42
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2423,6 +2473,132 @@ AnimationClip:
     classID: 4
     script: {fileID: 0}
     flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.046
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.L/upperarm.L/forearm.L
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.193
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.L/upperarm.L/forearm.L
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -0.193
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.L/upperarm.L/forearm.L
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.01
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.R/upperarm.R/forearm.R
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.215
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.R/upperarm.R/forearm.R
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -0.29
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.R/upperarm.R/forearm.R
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
   m_EulerEditorCurves:
   - serializedVersion: 2
     curve:
@@ -2504,7 +2680,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.L/upperarm.L/forearm.L
+    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.R/upperarm.R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2516,7 +2692,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.L/upperarm.L/forearm.L
+    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.R/upperarm.R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2528,7 +2704,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.L/upperarm.L/forearm.L
+    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.R/upperarm.R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -3007,8 +3183,8 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.R/upperarm.R
+    attribute: m_LocalEulerAngles.z
+    path: Pistol
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -3020,7 +3196,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.R/upperarm.R
+    path: Pistol
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -3031,8 +3207,8 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.R/upperarm.R
+    attribute: m_LocalEulerAngles.x
+    path: Pistol
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -3260,7 +3436,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Pistol
+    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.L/upperarm.L/forearm.L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -3272,7 +3448,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Pistol
+    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.L/upperarm.L/forearm.L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -3284,7 +3460,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Pistol
+    path: Wolfenstein3D-RME_BJ_Arms/Armature/shoulder.L/upperarm.L/forearm.L
     classID: 4
     script: {fileID: 0}
     flags: 0

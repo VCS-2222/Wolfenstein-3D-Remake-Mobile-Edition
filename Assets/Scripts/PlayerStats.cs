@@ -99,13 +99,13 @@ public class PlayerStats : MonoBehaviour
             if(lives < 0)
             {
                 PlayerPrefs.DeleteKey("lives");
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(1);
             }
             else
             {
 
                 PlayerPrefs.SetInt("lives", lives);
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(2);
             }
         }
     }

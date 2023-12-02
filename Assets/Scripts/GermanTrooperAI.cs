@@ -145,11 +145,12 @@ public class GermanTrooperAI : MonoBehaviour
         isIdle = true;
         agent.isStopped = true;
         animator.SetBool("Aim", true);
-        yield return new WaitForSeconds(1f);
         this.transform.LookAt(player.transform);
 
-        animator.SetTrigger("Shoot");
+        yield return new WaitForSeconds(1.2f);
         animator.SetBool("Aim", false);
+
+        animator.SetTrigger("Shoot");
 
         RaycastHit hit;
         Physics.Raycast(shootPoint.position, shootPoint.transform.forward, out hit, 10);
@@ -160,9 +161,15 @@ public class GermanTrooperAI : MonoBehaviour
         {
             hit.collider.GetComponent<PlayerStats>().TakeDamage(14);
         }
+        else
+        {
 
-        yield return new WaitForSeconds(2f);
+        }
+
+        yield return new WaitForSeconds(1f);
+
         agent.isStopped = false;
+        agent.destination = player.transform.position;
         isIdle = false;
     }
 

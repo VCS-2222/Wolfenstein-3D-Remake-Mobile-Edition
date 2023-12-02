@@ -27,8 +27,9 @@ public class MainMenuStartup : MonoBehaviour
 
     IEnumerator start()
     {
-        musicAudioSource.clip = epicStartupMusic;
-        musicAudioSource.Play();
+        //musicAudioSource.clip = epicStartupMusic;
+        //musicAudioSource.Play();
+        print("phase1");
 
         ratingCanvas.SetActive(true);
         starterCanvas.SetActive(false);
@@ -37,11 +38,13 @@ public class MainMenuStartup : MonoBehaviour
 
         ratingCanvas.SetActive(false);
         artCanvas.SetActive(true);
+        print("phase2");
 
         yield return new WaitForSeconds(2.5f);
 
-        musicAudioSource.clip = mainTheme;
-        musicAudioSource.Play();
+        //musicAudioSource.clip = mainTheme;
+        //musicAudioSource.Play();
+        print("phase3");
 
         mainMenuCanvas.SetActive(true);
         artCanvas.SetActive(false);

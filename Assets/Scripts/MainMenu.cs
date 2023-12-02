@@ -25,4 +25,9 @@ public class MainMenu : MonoBehaviour
     {
         return PlayerPrefs.GetInt("difficulty");
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

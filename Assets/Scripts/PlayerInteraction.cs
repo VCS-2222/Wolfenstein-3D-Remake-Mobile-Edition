@@ -94,11 +94,13 @@ public class PlayerInteraction : MonoBehaviour
             if (collision.transform.GetComponent<Item>().ReturnLivesAdd() == true)  //LIVES
             {
                 stats.GainLive();
+                Destroy(collision.gameObject);
             }
 
             if (collision.transform.GetComponent<Item>().ReturnLivesRemove() == true)   //LIVES
             {
                 stats.LoseLive();
+                Destroy(collision.gameObject);
             }
 
             if (collision.transform.GetComponent<Item>().ReturnScoreAdd() == true)  //SCORE
